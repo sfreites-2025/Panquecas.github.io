@@ -2,10 +2,79 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Mi Página Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tríptico Animado</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel {
+      flex: 1;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      transition: filter 1s ease;
+      filter: brightness(60%);
+    }
+    .panel.active {
+      filter: brightness(100%);
+      transition: filter 1s ease;
+    }
+
+    .label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    /* Fondos */
+    #paris {
+      background-image: url('https://cdn.pixabay.com/photo/2015/04/10/18/07/eiffel-tower-716334_960_720.jpg');
+    }
+    #roma {
+      background-image: url('https://cdn.pixabay.com/photo/2017/01/20/00/30/rome-1993642_960_720.jpg');
+    }
+    #venezuela {
+      background-image: url('https://cdn.pixabay.com/photo/2017/10/02/12/07/venezuela-2800115_960_720.jpg');
+    }
+
+  </style>
 </head>
 <body>
-  <h1>Bienvenido a mi página en GitHub Pages</h1>
-  <p>Esto es un ejemplo de página.</p>
+  <div class="container">
+    <div id="paris" class="panel active"><div class="label">París</div></div>
+    <div id="roma" class="panel"><div class="label">Roma</div></div>
+    <div id="venezuela" class="panel"><div class="label">Venezuela</div></div>
+  </div>
+
+  <script>
+    const panels = document.querySelectorAll('.panel');
+    let current = 0;
+
+    function changeActivePanel() {
+      panels.forEach((panel, index) => {
+        panel.classList.toggle('active', index === current);
+      });
+      current = (current + 1) % panels.length;
+    }
+
+    // Cambiar cada 3 segundos
+    setInterval(changeActivePanel, 3000);
+  </script>
 </body>
 </html>
