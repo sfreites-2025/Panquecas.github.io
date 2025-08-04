@@ -31,13 +31,22 @@
       color: white;
       padding: 20px;
       box-sizing: border-box;
+
+      /* Usamos flex para contenido en panel París */
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      justify-content: space-between;
+      align-items: flex-end;
     }
     .panel.active {
       filter: brightness(100%);
       transition: filter 1s ease;
+    }
+
+    .content-left {
+      max-width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
     .label {
@@ -45,6 +54,7 @@
       font-weight: bold;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
       margin-bottom: 10px;
+      color: black;
     }
 
     /* Estilos para descripción y botón */
@@ -52,13 +62,11 @@
       font-family: 'Times New Roman', Times, serif;
       color: black;
       font-size: 1rem;
-      max-width: 80%;
       margin-bottom: 15px;
       text-shadow: none;
       background: rgba(255, 255, 255, 0.8);
       padding: 8px 12px;
       border-radius: 6px;
-      align-self: flex-start; /* Para que no ocupe todo el ancho */
     }
     .info-button {
       padding: 10px 20px;
@@ -77,15 +85,28 @@
       background-color: #d32f2f;
     }
 
+    /* Imagen al lado derecho */
+    .image-right {
+      max-width: 35%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+
     /* Fondos */
     #paris {
       background-image: url('https://img.static-af.com/transform/45cb9a13-b167-4842-8ea8-05d0cc7a4d04/');
     }
     #roma {
       background-image: url('https://www.turismoroma.it/sites/default/files/Roma%20in%20breve.jpg');
+      color: white;
+      padding: 20px;
     }
     #venezuela {
       background-image: url('https://blackpepper.travel/cache/2024-01/viajes-venezuela-blackpepper-0143-canaima-saltoangel-2x-1008x671.jpg');
+      color: white;
+      padding: 20px;
     }
 
     @media (max-width: 768px) {
@@ -101,19 +122,35 @@
         flex: none;
         height: 100vh;
         padding: 15px;
+        display: block; /* En móvil apilar */
+      }
+      .content-left {
+        max-width: 100%;
+        margin-bottom: 20px;
       }
       .label {
         font-size: 1.5rem;
         margin-bottom: 8px;
+        color: white;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
       }
       .description {
         font-size: 0.9rem;
-        max-width: 90%;
         margin-bottom: 12px;
+        color: white;
+        background: rgba(0,0,0,0.5);
       }
       .info-button {
         font-size: 0.9rem;
         padding: 8px 18px;
+      }
+      .image-right {
+        max-width: 70%;
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
       }
     }
   </style>
@@ -121,9 +158,12 @@
 <body>
   <div class="container">
     <div id="paris" class="panel active">
-      <div class="label">París</div>
-      <div class="description">La ciudad del amor, conocida por su icónica Torre Eiffel, sus museos, cafés y su ambiente romántico único.</div>
-      <button class="info-button" onclick="alert('París es la capital de Francia, famosa por su arte, cultura y gastronomía.')">Información</button>
+      <div class="content-left">
+        <div class="label">París</div>
+        <div class="description">La ciudad del amor, conocida por su icónica Torre Eiffel, sus museos, cafés y su ambiente romántico único.</div>
+        <button class="info-button" onclick="alert('París es la capital de Francia, famosa por su arte, cultura y gastronomía.')">Información</button>
+      </div>
+      <img class="image-right" src="https://cdn-icons-png.flaticon.com/512/824/824732.png" alt="Icono de París" />
     </div>
     <div id="roma" class="panel"><div class="label">Roma</div></div>
     <div id="venezuela" class="panel"><div class="label">Venezuela</div></div>
