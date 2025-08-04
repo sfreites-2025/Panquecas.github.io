@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Index 2 - Historia de París</title>
+  <title>Index 2 - Historia y Fotografía de París</title>
   <style>
     html, body {
       margin: 0; padding: 0;
@@ -11,39 +11,80 @@
       width: 100%;
       font-family: Arial, sans-serif;
       color: white;
-    }
-    body {
       background-image: url('https://images.ecestaticos.com/KvUshkRTOxUMd0lsfOpZlPTliaI=/0x0:1050x700/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F5a9%2F45a%2F375%2F5a945a37558848c14f2105ab2f58806c.jpg');
       background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
+      background-position: center;
+      overflow: auto;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    body {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: flex-start;
-      height: 100vh;
       padding: 30px;
       box-sizing: border-box;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      min-height: 100vh;
+    }
+
+    .top-section {
+      display: flex;
+      max-width: 100%;
+      width: 100%;
+      gap: 40px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .text-left {
+      max-width: 50%;
+      min-width: 300px;
     }
     h1 {
       background-color: rgba(0,0,0,0.6);
-      padding: 15px 25px;
+      padding: 15px 20px;
       border-radius: 10px;
       font-size: 3rem;
       margin: 0 0 20px 0;
-      max-width: 80%;
     }
     p {
       background-color: rgba(0,0,0,0.5);
-      padding: 15px 25px;
+      padding: 15px 20px;
       border-radius: 10px;
       font-size: 1.2rem;
-      max-width: 700px;
       line-height: 1.5;
-      margin: 0 0 20px 0;
+      margin: 0;
     }
+
+    .photo-right {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+      opacity: 0;
+      animation: fadeInUp 2s forwards;
+      animation-delay: 0.5s;
+    }
+
+    .data-box {
+      background-color: rgba(244, 67, 54, 0.8);
+      padding: 15px 25px;
+      border-radius: 12px;
+      max-width: 60%;
+      font-size: 1.1rem;
+      user-select: none;
+      color: white;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 2.5s;
+    }
+
     .back-button {
+      margin-top: 30px;
       padding: 12px 24px;
       font-size: 1.2rem;
       background-color: #f44336;
@@ -54,17 +95,64 @@
       box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
       transition: background-color 0.3s ease;
       user-select: none;
+      align-self: flex-start;
     }
     .back-button:hover {
       background-color: #d32f2f;
     }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    /* Responsive para pantallas pequeñas */
+    @media (max-width: 768px) {
+      .top-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .text-left, .photo-right {
+        max-width: 100%;
+      }
+      .data-box {
+        max-width: 90%;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Historia de París</h1>
-  <p>
-    París nació en el siglo III a.C. cuando la tribu celta de los Parisii se estableció en la actual Île de la Cité. Fue conquistada por los romanos en el siglo I a.C., quienes la llamaron Lutecia. Con el paso de los siglos, París se ha convertido en un centro cultural, político y artístico de gran importancia mundial, conocido como "La Ciudad de la Luz".
-  </p>
+  <div class="top-section">
+    <div class="text-left">
+      <h1>Historia de París</h1>
+      <p>
+        París nació en el siglo III a.C. cuando la tribu celta de los Parisii se estableció en la actual Île de la Cité. Fue conquistada por los romanos en el siglo I a.C., quienes la llamaron Lutecia. Con el paso de los siglos, París se ha convertido en un centro cultural, político y artístico de gran importancia mundial, conocido como "La Ciudad de la Luz".
+      </p>
+    </div>
+    <img 
+      src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFZwMF9keiID3cCBfFT3XIrt-6KsOViKtmUAwK63pbywZFOaVcf6y1vX620t4gwrn3c6BwwkQ6ljIiXVWRZNWx4SgGJ7pSYm_RAnQhAkNE9MHFTfuINJbpstjFn57GMiPgB4hwYsLD4Wg/s1600/Fotograf%25C3%25ADas+antiguas+de+Par%25C3%25ADs+-+Eug%25C3%25A8ne+Atget+1.jpg" 
+      alt="Fotografía antigua de París por Eugène Atget" 
+      class="photo-right"
+    />
+  </div>
+  <div class="data-box">
+    Dato: Eugène Atget fue un fotógrafo pionero que documentó el "Viejo París" a finales del siglo XIX y principios del XX, capturando escenas que hoy serían imposibles de ver.
+  </div>
+
   <button class="back-button" onclick="window.location.href='index.html'">Regresar</button>
 </body>
 </html>
