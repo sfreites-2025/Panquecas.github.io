@@ -3,29 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tríptico Vertical Animado</title>
+  <title>Tríptico Vertical Animado Responsive</title>
   <style>
     html, body {
       margin: 0; padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: Arial, sans-serif;
     }
+
+    /* Contenedor flex vertical para pantallas grandes */
     .container {
       display: flex;
       flex-direction: column;
       height: 100vh;
       width: 100vw;
       position: relative;
+      overflow: hidden;
     }
 
+    /* Cada panel ocupa 1/3 del alto, con transición de brillo */
     .panel {
       flex: 1;
       position: relative;
       background-size: cover;
       background-position: center;
-      transition: filter 1s ease;
       filter: brightness(60%);
+      transition: filter 1s ease;
+      min-height: 0; /* para evitar problemas de flexbox */
     }
     .panel.active {
       filter: brightness(100%);
@@ -53,6 +57,26 @@
       background-image: url('https://blackpepper.travel/cache/2024-01/viajes-venezuela-blackpepper-0143-canaima-saltoangel-2x-1008x671.jpg');
     }
 
+    /* Media query para pantallas pequeñas (móviles) */
+    @media (max-width: 768px) {
+      html, body {
+        height: auto;
+      }
+      .container {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+      }
+      .panel {
+        flex: none;
+        height: 100vh;
+      }
+      .label {
+        font-size: 1.5rem;
+        bottom: 15px;
+        left: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -73,7 +97,7 @@
       current = (current + 1) % panels.length;
     }
 
-    // Cambiar cada 3 segundos
+    // Cambiar active cada 3 segundos
     setInterval(changeActivePanel, 3000);
   </script>
 </body>
