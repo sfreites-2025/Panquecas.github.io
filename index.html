@@ -32,10 +32,11 @@
       padding: 20px;
       box-sizing: border-box;
 
-      /* Usamos flex para contenido en panel París */
+      /* Ajuste para centrar solo el contenido de texto en París */
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      flex-direction: column;
+      justify-content: flex-end;
+      max-width: 100%;
     }
     .panel.active {
       filter: brightness(100%);
@@ -43,7 +44,7 @@
     }
 
     .content-left {
-      max-width: 60%;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -67,6 +68,7 @@
       background: rgba(255, 255, 255, 0.8);
       padding: 8px 12px;
       border-radius: 6px;
+      width: fit-content;
     }
     .info-button {
       display: inline-block;
@@ -85,15 +87,6 @@
     }
     .info-button:hover {
       background-color: #d32f2f;
-    }
-
-    /* Imagen al lado derecho */
-    .image-right {
-      max-width: 35%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-      object-fit: contain;
     }
 
     /* Fondos */
@@ -124,7 +117,7 @@
         flex: none;
         height: 100vh;
         padding: 15px;
-        display: block; /* En móvil apilar */
+        display: block;
       }
       .content-left {
         max-width: 100%;
@@ -146,14 +139,6 @@
         font-size: 0.9rem;
         padding: 8px 18px;
       }
-      .image-right {
-        max-width: 70%;
-        display: block;
-        margin: 0 auto;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-      }
     }
   </style>
 </head>
@@ -165,7 +150,6 @@
         <div class="description">La ciudad del amor, conocida por su icónica Torre Eiffel, sus museos, cafés y su ambiente romántico único.</div>
         <a href="index2.html" class="info-button">Información</a>
       </div>
-      <img class="image-right" src="https://cdn-icons-png.flaticon.com/512/824/824732.png" alt="Icono de París" />
     </div>
     <div id="roma" class="panel"><div class="label">Roma</div></div>
     <div id="venezuela" class="panel"><div class="label">Venezuela</div></div>
