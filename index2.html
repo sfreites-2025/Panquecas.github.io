@@ -9,19 +9,21 @@
       margin: 0; padding: 0;
       height: 100%;
       width: 100%;
+      font-family: Arial, sans-serif;
     }
     body {
       background-image: url('https://images.ecestaticos.com/KvUshkRTOxUMd0lsfOpZlPTliaI=/0x0:1050x700/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F5a9%2F45a%2F375%2F5a945a37558848c14f2105ab2f58806c.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-family: Arial, sans-serif;
       color: white;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       text-align: center;
+      gap: 20px;
     }
     h1 {
       background-color: rgba(0,0,0,0.5);
@@ -30,9 +32,24 @@
       font-size: 3rem;
       max-width: 80%;
     }
+    .back-button {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+      background-color: #d32f2f;
+    }
   </style>
 </head>
 <body>
   <h1>Bienvenido a Index 2 con fondo histórico de París</h1>
+  <button class="back-button" onclick="window.location.href='index.html'">Regresar</button>
 </body>
 </html>
